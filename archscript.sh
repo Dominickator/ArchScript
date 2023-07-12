@@ -43,3 +43,9 @@ sudo pacman -S gamemode lib32-gamemode
 echo "Installing other utilities..."
 sudo pacman -S neofetch htop
 flatpak install flathub sh.cider.Cider
+
+#Install refind
+echo "Installing refind boot manager..."
+sudo pacman -S refind
+refind-install
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/bobafetthotmail/refind-theme-regular/master/install.sh)"
