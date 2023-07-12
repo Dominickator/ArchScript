@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Install yay and other drivers
 echo "Installing yay and other drivers..."
 cd
@@ -28,7 +30,9 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 #Now install stuff from the AUR
 echo "Installing utilities from the AUR"
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" visual-studio-code-bin swift-bin google-chrome 
+yay -S visual-studio-code-bin google-chrome
+yay -S ttf-ms-win11-auto
+sudo fc-cache --force
 
 #Gaming and stuff
 echo "Installing programs for gaming..."
