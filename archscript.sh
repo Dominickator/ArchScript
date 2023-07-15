@@ -31,6 +31,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 #Now install stuff from the AUR
 echo "Installing utilities from the AUR"
 yay -S visual-studio-code-bin google-chrome
+yay -S ttf-jetbrains-mono
 yay -S ttf-ms-win11-auto
 sudo fc-cache --force
 
