@@ -2,24 +2,21 @@
 
 #Install yay and other drivers
 echo "Installing yay and other drivers..."
-cd
-cd Documents
+cd ~/Documents
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
 sudo pacman -S curl cabextract
-cd 
-cd Documents
+cd ~/Documents
 git clone https://github.com/medusalix/xone
 cd xone
 sudo ./install.sh --release
 sudo xone-get-firmware.sh
 
 sudo pacman -S git cmake hidapi
-cd
-cd Documents
+cd ~/Documents
 git clone https://github.com/Sapd/HeadsetControl && cd HeadsetControl
 mkdir build && cd build
 cmake ..
@@ -30,6 +27,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 #Now install stuff from the AUR
 echo "Installing utilities from the AUR"
+yay -S adw-gtk3
 yay -S visual-studio-code-bin google-chrome
 yay -S ttf-jetbrains-mono
 yay -S ttf-ms-win11-auto
