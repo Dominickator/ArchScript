@@ -3,7 +3,8 @@
 #Install yay and other drivers
 echo "Installing yay and other drivers..."
 cd ~/Documents
-sudo pacman -S --needed git base-devel
+sudo pacman -S --needed git base-devel bluez bluez-utils
+sudo systemctl enable bluetooth.service
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -48,3 +49,4 @@ echo "Installing refind boot manager..."
 sudo pacman -S refind
 refind-install
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/bobafetthotmail/refind-theme-regular/master/install.sh)"
+reboot
