@@ -30,11 +30,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 #Now install stuff from the AUR
 echo "Installing utilities from the AUR"
-paru -S adw-gtk3
-paru -S visual-studio-code-bin microsoft-edge-stable-bin ttf-firacode
-paru -S ttf-jetbrains-mono
-paru -S ttf-ms-win11-auto
-sudo fc-cache --force
+paru -S visual-studio-code-bin ttf-firacode sf-fonts microsoft-edge-dev-bin zoom
 
 #Gaming and stuff
 echo "Installing programs for gaming..."
@@ -50,4 +46,16 @@ echo "Installing refind boot manager..."
 sudo pacman -S refind
 refind-install
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/bobafetthotmail/refind-theme-regular/master/install.sh)"
+
+#Copy games over
+echo "Copying steam games over from Windows"
+mkdir ~/.local/share/Steam/steamapps
+sudo mount /dev/sda2 /mnt
+cd '/mnt/Program Files (x86)/Steam/steamapps'
+sudo cp * ~/.local/share/Steam/steamapps
+cd /mnt/Windows/Fonts
+sudo cp * /usr/share/fonts
+sudo fc-cache -fv
+
 reboot
+
