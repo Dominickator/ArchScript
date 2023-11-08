@@ -3,7 +3,7 @@
 #Install yay and other drivers
 echo "Installing paru and other drivers..."
 cd ~/Documents
-sudo pacman -S --needed git base-devel bluez bluez-utils
+sudo pacman -S --needed git base-devel bluez bluez-utils ntfs-3g
 sudo systemctl enable bluetooth.service
 git clone https://aur.archlinux.org/paru.git
 cd paru
@@ -49,12 +49,12 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/bobafetthotmail/ref
 
 #Copy games over
 echo "Copying steam games over from Windows"
-mkdir ~/.local/share/Steam/steamapps
+mkdir -p ~/.local/share/Steam/steamapps
 sudo mount /dev/sda2 /mnt
 cd '/mnt/Program Files (x86)/Steam/steamapps'
-sudo cp * ~/.local/share/Steam/steamapps
+sudo cp -r * ~/.local/share/Steam/steamapps
 cd /mnt/Windows/Fonts
-sudo cp * /usr/share/fonts
+sudo cp -r * /usr/share/fonts
 sudo fc-cache -fv
 
 reboot
