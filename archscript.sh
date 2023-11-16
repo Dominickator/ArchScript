@@ -56,6 +56,7 @@ sudo cp -r * ~/.local/share/Steam/steamapps
 cd /mnt/Windows/Fonts
 sudo cp -r * /usr/share/fonts
 sudo fc-cache -fv
+sudo chmod -R 777 ~/.local/share/Steam
 
 reboot
 
