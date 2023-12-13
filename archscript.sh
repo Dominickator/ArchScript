@@ -49,14 +49,10 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/bobafetthotmail/ref
 
 #Copy games over
 echo "Copying steam games over from Windows"
-mkdir -p ~/.local/share/Steam/steamapps
-sudo mount /dev/sda2 /mnt
-cd '/mnt/Program Files (x86)/Steam/steamapps'
-sudo cp -r * ~/.local/share/Steam/steamapps
+sudo mount /dev/nvme0n1p3 /mnt
 cd /mnt/Windows/Fonts
 sudo cp -r * /usr/share/fonts
 sudo fc-cache -fv
-sudo chmod -R 777 ~/.local/share/Steam
 
 reboot
 
